@@ -41,9 +41,13 @@ export default function Navbar({
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4 transition-all duration-500">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3 sm:pt-4 transition-all duration-500 flex justify-center"
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, display: 'flex', justifyContent: 'center' }}
+    >
       <nav
-        className={`mx-auto max-w-7xl transition-all duration-500 rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between ${
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
+        className={`mx-auto max-w-7xl w-full transition-all duration-500 rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between ${
           scrolled
             ? "backdrop-blur-2xl bg-[#121214]/90 border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.85)]"
             : "backdrop-blur-md bg-[#18181b]/60 border border-white/5"

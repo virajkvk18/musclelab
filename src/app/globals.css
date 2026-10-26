@@ -23,6 +23,50 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* Hardened Structural Layout Guards */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+header nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.hero-content-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 1.25rem !important;
+  width: 100% !important;
+  max-width: 1024px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hero-logo-box {
+  max-width: 140px !important;
+  max-height: 140px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.hero-logo-box img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
 ::selection {
   background: #c5a059;
   color: #121214;

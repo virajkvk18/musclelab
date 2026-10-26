@@ -43,7 +43,6 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
   const headlineScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.94]);
   const headlineY = useTransform(scrollYProgress, [0, 0.6], [0, 60]);
   const headlineOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.3]);
-  const logoWatermarkY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
   const toggleSound = () => {
     if (!videoRef.current) return;
@@ -97,20 +96,6 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
         <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-[#121214]/60 to-[#121214]/85" />
         <div className="absolute inset-0 bg-radial-vignette opacity-70" />
         <div className="absolute inset-0 bg-grid-subtle opacity-20 pointer-events-none" />
-
-        {/* Massive Subtle Watermark of Official Logo */}
-        <motion.div
-          style={{ y: logoWatermarkY }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[650px] md:w-[850px] h-[340px] sm:h-[650px] md:h-[850px] pointer-events-none opacity-[0.06] select-none"
-        >
-          <Image
-            src="/assets/logo.png"
-            alt="Muscle Lab Logo Watermark"
-            fill
-            sizes="(max-width: 768px) 340px, 850px"
-            className="object-contain filter grayscale contrast-200"
-          />
-        </motion.div>
 
         {/* Warm Ambient Sheen Lights */}
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#c5a059]/10 rounded-full blur-[160px] pointer-events-none" />
@@ -170,13 +155,54 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
       </div>
 
       {/* Main Hero Content Display */}
-      <div className="relative z-20 max-w-6xl mx-auto text-center flex flex-col items-center">
+      <div
+        className="hero-content-stack relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          width: '100%',
+          maxWidth: '1024px',
+          margin: '0 auto',
+          position: 'relative',
+          zIndex: 20
+        }}
+      >
+        {/* Constrained Official Logo Crest (Max width 130px) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="hero-logo-box relative w-24 h-24 sm:w-28 sm:h-28 mb-3"
+          style={{
+            maxWidth: '120px',
+            maxHeight: '120px',
+            width: '100%',
+            height: '100px',
+            position: 'relative',
+            margin: '0 auto 8px auto'
+          }}
+        >
+          <Image
+            src="/assets/logo.png"
+            alt="Muscle Lab Gym Official Badge"
+            fill
+            priority
+            sizes="120px"
+            className="object-contain drop-shadow-[0_0_25px_rgba(197,160,89,0.35)]"
+            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+          />
+        </motion.div>
+
         {/* Floating Top Badge */}
         <motion.div
           initial={{ opacity: 0, y: -20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full glass-panel border border-[#c5a059]/40 text-slate-200 shadow-[0_0_20px_rgba(197,160,89,0.15)] mb-6 sm:mb-8 max-w-[94vw] sm:max-w-none"
+          className="inline-flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full glass-panel border border-[#c5a059]/40 text-slate-200 shadow-[0_0_20px_rgba(197,160,89,0.15)] mb-4 sm:mb-6 max-w-[94vw] sm:max-w-none"
+          style={{ margin: '0 auto 16px auto' }}
         >
           <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c5a059] opacity-75"></span>
@@ -212,7 +238,8 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 sm:mt-8 max-w-2xl sm:max-w-3xl text-sm sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed tracking-normal font-body px-2"
+          className="mt-4 sm:mt-6 max-w-2xl sm:max-w-3xl text-sm sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed tracking-normal font-body px-2"
+          style={{ margin: '16px auto 0 auto' }}
         >
           Central India&apos;s premier private fitness sanctuary. Featuring biomechanically perfected,{" "}
           <span className="text-white font-medium underline decoration-[#c5a059] underline-offset-4">
@@ -226,7 +253,8 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
           initial={{ opacity: 0, y: 25, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto"
+          className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto"
+          style={{ display: 'flex', justifyContent: 'center', gap: '16px', margin: '24px auto 0 auto' }}
         >
           {/* Day Pass Primary CTA */}
           <button
@@ -254,7 +282,8 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 sm:mt-16 flex flex-wrap items-center justify-center gap-3 sm:gap-8 text-xs font-tech text-slate-400 border-t border-white/10 pt-6 max-w-3xl"
+          className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-8 text-xs font-tech text-slate-400 border-t border-white/10 pt-6 max-w-3xl w-full"
+          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '16px', margin: '32px auto 0 auto', width: '100%' }}
         >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
