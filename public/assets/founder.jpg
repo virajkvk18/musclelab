@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#2a0809" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#0e0e14" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#050507" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd700"/>
+      <stop offset="50%" stop-color="#ffb800"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+    <linearGradient id="crimsonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff333b"/>
+      <stop offset="100%" stop-color="#c70b13"/>
+    </linearGradient>
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f242e"/>
+      <stop offset="50%" stop-color="#141820"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="url(#bgGlow)"/>
+
+  <!-- Geometric Grid & Rings -->
+  <circle cx="400" cy="400" r="320" fill="none" stroke="rgba(255, 184, 0, 0.12)" stroke-width="2" stroke-dasharray="10 8"/>
+  <circle cx="400" cy="400" r="260" fill="none" stroke="rgba(255, 30, 39, 0.15)" stroke-width="1.5"/>
+  <circle cx="400" cy="400" r="380" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+
+  <!-- Architectural Frame -->
+  <rect x="40" y="40" width="720" height="920" rx="24" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.3"/>
+  <rect x="55" y="55" width="690" height="890" rx="16" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+
+  <!-- Advocate Scales of Justice Emblem at Top -->
+  <g transform="translate(400, 140)">
+    <circle cx="0" cy="0" r="42" fill="#0d0d14" stroke="url(#goldGrad)" stroke-width="2"/>
+    <!-- Scales Icon -->
+    <path d="M 0 -20 L 0 20 M -20 -10 L 20 -10 M -22 -10 L -28 5 M -18 -10 L -12 5 M 22 -10 L 28 5 M 18 -10 L 12 5 M -30 5 Q -20 12 -10 5 Z M 10 5 Q 20 12 30 5 Z" stroke="#ffd700" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="-20" r="3" fill="#ffd700"/>
+    <path d="M -8 20 L 8 20" stroke="#ffd700" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Professional Silhouette of Harsh Jain (Suit, Athletic Build) -->
+  <g transform="translate(400, 520)">
+    <!-- Back Glow behind shoulders -->
+    <ellipse cx="0" cy="-60" rx="200" ry="140" fill="#ff1e27" opacity="0.12" filter="url(#glow)"/>
+
+    <!-- Shoulders & Suit -->
+    <path d="M -230 360 L -180 120 Q -140 30 -50 0 L 0 25 L 50 0 Q 140 30 180 120 L 230 360 Z" fill="url(#suitGrad)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
+
+    <!-- Shirt Collar & Tie -->
+    <polygon points="0,25 -25,95 0,165 25,95" fill="#f8fafc"/>
+    <polygon points="0,35 -14,130 0,320 14,130" fill="url(#crimsonGrad)"/>
+    <polygon points="-50,0 -20,80 -10,30" fill="#e2e8f0"/>
+    <polygon points="50,0 20,80 10,30" fill="#e2e8f0"/>
+
+    <!-- Suit Lapels -->
+    <path d="M -50 0 L -80 150 L -25 210 L -20 80 Z" fill="#2d3342" stroke="rgba(255, 184, 0, 0.2)" stroke-width="1"/>
+    <path d="M 50 0 L 80 150 L 25 210 L 20 80 Z" fill="#2d3342" stroke="rgba(255, 184, 0, 0.2)" stroke-width="1"/>
+
+    <!-- Red Pocket Square -->
+    <polygon points="90,160 115,145 130,165 95,170" fill="#ff1e27"/>
+
+    <!-- Head & Hair Silhouette with Sharp Grooming -->
+    <!-- Neck -->
+    <path d="M -35 -20 L -35 15 L 35 15 L 35 -20 Z" fill="#3a302a"/>
+    <!-- Head Oval -->
+    <ellipse cx="0" cy="-110" rx="85" ry="105" fill="#322822"/>
+    <!-- Jawline definition -->
+    <path d="M -80 -110 Q -75 -40 0 0 Q 75 -40 80 -110 Z" fill="#3a302a"/>
+    <!-- Hair style (Clean tapered executive cut) -->
+    <path d="M -88 -120 Q -90 -220 0 -225 Q 90 -220 88 -120 Q 70 -205 0 -208 Q -70 -205 -88 -120 Z" fill="#151518"/>
+    <!-- Subtle Beard & Mustache definition -->
+    <path d="M -60 -70 Q -40 -15 0 -5 Q 40 -15 60 -70 Q 40 -35 0 -25 Q -40 -35 -60 -70 Z" fill="#18181c" opacity="0.9"/>
+  </g>
+
+  <!-- Metallic Identity Plate at Bottom -->
+  <g transform="translate(400, 840)">
+    <rect x="-280" y="-50" width="560" height="100" rx="18" fill="#0d0d14" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <text x="0" y="-12" font-family="'Syne', 'Oswald', sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="3">
+      HARSH JAIN
+    </text>
+    <text x="0" y="16" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#ffb800" text-anchor="middle" letter-spacing="2">
+      ADVOCATE &amp; FOUNDER
+    </text>
+    <text x="0" y="34" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="500" fill="#94a3b8" text-anchor="middle" letter-spacing="1.5">
+      MUSCLE LAB FITNESS • JABALPUR
+    </text>
+  </g>
+</svg>

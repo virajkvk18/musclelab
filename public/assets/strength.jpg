@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <radialGradient id="strengthGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a0507"/>
+      <stop offset="60%" stop-color="#0a0a0e"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </radialGradient>
+    <linearGradient id="ironPlate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a4d55"/>
+      <stop offset="50%" stop-color="#1f2126"/>
+      <stop offset="100%" stop-color="#121317"/>
+    </linearGradient>
+    <linearGradient id="crimsonNeon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff1e27"/>
+      <stop offset="100%" stop-color="#ff6b6b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#strengthGlow)"/>
+
+  <!-- Subtle Perspective Grid (Gym Floor) -->
+  <g opacity="0.15">
+    <line x1="0" y1="450" x2="1200" y2="450" stroke="#ff1e27" stroke-width="2"/>
+    <line x1="0" y1="520" x2="1200" y2="520" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="610" x2="1200" y2="610" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="0" y1="720" x2="1200" y2="720" stroke="#ffffff" stroke-width="2"/>
+    <line x1="600" y1="450" x2="100" y2="800" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="600" y1="450" x2="350" y2="800" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="600" y1="450" x2="600" y2="800" stroke="#ff1e27" stroke-width="2"/>
+    <line x1="600" y1="450" x2="850" y2="800" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="600" y1="450" x2="1100" y2="800" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+
+  <!-- Glowing Overhead Gym Lighting Tubes -->
+  <line x1="200" y1="120" x2="1000" y2="120" stroke="#ff1e27" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <line x1="200" y1="120" x2="1000" y2="120" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Heavy Dumbbell & Olympic Barbell Silhouette Centerpiece -->
+  <g transform="translate(600, 420)">
+    <!-- Barbell Shaft -->
+    <rect x="-420" y="-12" width="840" height="24" rx="12" fill="#c0c5ce" stroke="#717a8a" stroke-width="2"/>
+    <!-- Knurling texture marks -->
+    <rect x="-240" y="-11" width="160" height="22" fill="#8892a4" opacity="0.4"/>
+    <rect x="80" y="-11" width="160" height="22" fill="#8892a4" opacity="0.4"/>
+
+    <!-- Left Plates -->
+    <rect x="-380" y="-140" width="35" height="280" rx="10" fill="url(#ironPlate)" stroke="#ff1e27" stroke-width="3"/>
+    <text x="-362" y="8" font-family="'Syne', sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" transform="rotate(-90 -362 8)">25 KG</text>
+    <rect x="-340" y="-130" width="32" height="260" rx="8" fill="url(#ironPlate)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <rect x="-304" y="-115" width="28" height="230" rx="8" fill="url(#ironPlate)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <!-- Collars -->
+    <circle cx="-270" cy="0" r="28" fill="#e2e8f0" stroke="#1f2126" stroke-width="4"/>
+
+    <!-- Right Plates -->
+    <rect x="345" y="-140" width="35" height="280" rx="10" fill="url(#ironPlate)" stroke="#ff1e27" stroke-width="3"/>
+    <text x="362" y="8" font-family="'Syne', sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" transform="rotate(90 362 8)">25 KG</text>
+    <rect x="308" y="-130" width="32" height="260" rx="8" fill="url(#ironPlate)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <rect x="276" y="-115" width="28" height="230" rx="8" fill="url(#ironPlate)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <!-- Collars -->
+    <circle cx="270" cy="0" r="28" fill="#e2e8f0" stroke="#1f2126" stroke-width="4"/>
+  </g>
+
+  <!-- Telemetry Badge Overlay -->
+  <g transform="translate(600, 680)">
+    <rect x="-240" y="-30" width="480" height="60" rx="16" fill="rgba(10,10,14,0.85)" stroke="#ff1e27" stroke-width="1.5"/>
+    <text x="0" y="-4" font-family="'Syne', sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">THE HEAVY IRON FLOOR</text>
+    <text x="0" y="18" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#ffb800" text-anchor="middle" letter-spacing="1">KAI GREENE CERTIFIED • 70KG DUMBBELLS • PLATE-LOADED</text>
+  </g>
+</svg>

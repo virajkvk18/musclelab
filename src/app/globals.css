@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #121214;
+  --background-secondary: #18181b;
+  --foreground: #e5e7eb;
+  --gold-primary: #c5a059;
+  --gold-light: #e8c881;
+  --gold-dark: #9e7d3b;
+  --silver-light: #f3f4f6;
+  --silver-medium: #d1d5db;
+  --silver-dark: #9ca3af;
+  --charcoal-card: #151519;
+  --charcoal-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  background-color: #121214;
+  color: #e5e7eb;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: #c5a059;
+  color: #121214;
+}
+
+/* Custom Scrollbar - Matte Charcoal & Gold */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #121214;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}
+
+/* Typography Classes - Harmonious & Organic Luxury Spacing */
+.font-display {
+  font-family: 'Syncopate', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-tech {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.font-body {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-mono-stat {
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: 0.03em;
+}
+
+/* Metallic Gold Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #c5a059 0%, #f3e7be 50%, #c5a059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-text-subtle {
+  background: linear-gradient(135deg, #d4af37 0%, #fef3c7 50%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.silver-gradient-text {
+  background: linear-gradient(135deg, #f3f4f6 0%, #d1d5db 50%, #9ca3af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Matte Frosted Glass Surfaces */
+.glass-panel {
+  background: rgba(24, 24, 27, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  box-shadow: 0 0 35px -10px rgba(197, 160, 89, 0.15);
+}
+
+/* Subtle Film Grain Noise Texture */
+.bg-matte-noise {
+  background-color: #121214;
+  background-image: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.04) 0%, transparent 60%),
+                    radial-gradient(circle at 100% 100%, rgba(209, 213, 219, 0.02) 0%, transparent 50%);
+}
+
+.bg-grid-subtle {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Metallic Sheen Sweep Animation */
+@keyframes metallicSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.sheen-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.sheen-effect:hover::after {
+  transform: translateX(100%);
+}
