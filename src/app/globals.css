@@ -47,7 +47,6 @@ header nav {
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  gap: 1.25rem !important;
   width: 100% !important;
   max-width: 1024px !important;
   margin-left: auto !important;
@@ -55,16 +54,73 @@ header nav {
 }
 
 .hero-logo-box {
-  max-width: 140px !important;
-  max-height: 140px !important;
+  max-width: 76px !important;
+  max-height: 76px !important;
   width: 100% !important;
   height: auto !important;
+  margin: 0 auto !important;
+}
+
+@media (min-width: 640px) {
+  .hero-logo-box {
+    max-width: 96px !important;
+    max-height: 96px !important;
+  }
 }
 
 .hero-logo-box img {
   max-width: 100% !important;
   max-height: 100% !important;
   object-fit: contain !important;
+}
+
+/* Strict 2-Line Responsive Hero Display Typography */
+.hero-two-line-title {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 479px) {
+  .hero-two-line-title {
+    font-size: clamp(1.28rem, 6.4vw, 1.72rem);
+    letter-spacing: 0.018em;
+    line-height: 1.12;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .hero-two-line-title {
+    font-size: clamp(1.75rem, 5.8vw, 2.5rem);
+    letter-spacing: 0.022em;
+    line-height: 1.08;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-two-line-title {
+    font-size: clamp(2.6rem, 5.2vw, 3.6rem);
+    letter-spacing: 0.028em;
+    line-height: 1.05;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-two-line-title {
+    font-size: clamp(3.6rem, 5vw, 4.85rem);
+    letter-spacing: 0.035em;
+    line-height: 1.04;
+  }
+}
+
+.hero-two-line-title .hero-line {
+  display: block;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 ::selection {
@@ -91,17 +147,17 @@ header nav {
 .font-display {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 900;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.025em;
 }
 
 .font-tech {
   font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .font-body {
   font-family: 'Montserrat', sans-serif;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.005em;
 }
 
 .font-mono-stat {

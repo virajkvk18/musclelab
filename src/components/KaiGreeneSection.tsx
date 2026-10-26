@@ -111,7 +111,7 @@ export default function KaiGreeneSection({ onOpenDayPassModal }: KaiGreeneSectio
               <Award className="w-4 h-4 text-[#c5a059]" />
               Official IFBB Legend Certification
             </div>
-            <h2 className="font-display font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white leading-tight">
+            <h2 className="font-display font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-[0.02em] text-white leading-tight">
               CERTIFIED &amp; ENDORSED BY{" "}
               <span className="bg-gradient-to-b from-[#FDE08B] via-[#C5A059] to-[#8C6D31] bg-clip-text text-transparent drop-shadow-sm">
                 KAI GREENE

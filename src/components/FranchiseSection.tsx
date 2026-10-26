@@ -51,7 +51,7 @@ export default function FranchiseSection({ onOpenFranchiseModal }: FranchiseSect
                 EXECUTIVE EXPANSION &amp; PARTNERSHIP
               </div>
 
-              <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight leading-tight">
+              <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-5xl text-white uppercase tracking-[0.02em] leading-tight">
                 SCALE THE{" "}
                 <span className="bg-gradient-to-b from-[#FDE08B] via-[#C5A059] to-[#8C6D31] bg-clip-text text-transparent drop-shadow-sm">
                   IRON LEGACY

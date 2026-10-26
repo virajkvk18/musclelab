@@ -67,7 +67,7 @@ export default function InstagramVideoGrid() {
               <span className="w-2 h-2 rounded-full bg-[#c5a059] animate-pulse" />
               LIVE TELEMETRY FEED
             </div>
-            <h2 className="font-display font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight text-slate-200 leading-tight">
+            <h2 className="font-display font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-[0.02em] text-slate-200 leading-tight">
               THE SANCTUARY IN MOTION •{" "}
               <span className="bg-gradient-to-b from-[#FDE08B] via-[#C5A059] to-[#8C6D31] bg-clip-text text-transparent drop-shadow-sm">
                 @MUSCLELABJBP
