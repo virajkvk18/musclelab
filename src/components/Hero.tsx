@@ -170,17 +170,17 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
           zIndex: 20
         }}
       >
-        {/* Constrained Official Logo Crest (Max width 130px) */}
+        {/* Constrained Official Logo Crest */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="hero-logo-box relative w-24 h-24 sm:w-28 sm:h-28 mb-3"
+          className="hero-logo-box relative w-20 h-20 sm:w-24 sm:h-24 mb-2"
           style={{
-            maxWidth: '120px',
-            maxHeight: '120px',
+            maxWidth: '100px',
+            maxHeight: '100px',
             width: '100%',
-            height: '100px',
+            height: '90px',
             position: 'relative',
             margin: '0 auto 8px auto'
           }}
@@ -190,8 +190,8 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
             alt="Muscle Lab Gym Official Badge"
             fill
             priority
-            sizes="120px"
-            className="object-contain drop-shadow-[0_0_25px_rgba(197,160,89,0.35)]"
+            sizes="100px"
+            className="object-contain drop-shadow-[0_0_20px_rgba(197,160,89,0.4)]"
             style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
           />
         </motion.div>
@@ -201,34 +201,33 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
           initial={{ opacity: 0, y: -20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full glass-panel border border-[#c5a059]/40 text-slate-200 shadow-[0_0_20px_rgba(197,160,89,0.15)] mb-4 sm:mb-6 max-w-[94vw] sm:max-w-none"
-          style={{ margin: '0 auto 16px auto' }}
+          className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full glass-panel border border-[#c5a059]/40 text-slate-200 shadow-[0_0_20px_rgba(197,160,89,0.15)] mb-3 sm:mb-5 max-w-[94vw] sm:max-w-none"
+          style={{ margin: '0 auto 12px auto' }}
         >
           <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c5a059] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c5a059]"></span>
           </span>
-          <span className="text-[10px] sm:text-xs font-tech font-bold tracking-wider uppercase text-slate-200 truncate sm:overflow-visible">
-            <span className="hidden sm:inline">KAI GREENE CERTIFIED BIOMECHANICS • 1ST FLOOR JAIN HEIGHTS • WRIGHT TOWN</span>
-            <span className="sm:hidden">KAI GREENE CERTIFIED • 1ST FLOOR JAIN HEIGHTS</span>
+          <span className="text-[10px] sm:text-xs font-tech font-bold tracking-wider uppercase text-slate-200">
+            KAI GREENE CERTIFIED • WRIGHT TOWN, JABALPUR
           </span>
         </motion.div>
 
-        {/* 3D Metallic Gradient Display Headline */}
+        {/* 2-Line Headline (Strictly 2 lines on mobile & web) */}
         <motion.div
           style={{
             scale: headlineScale,
             y: headlineY,
             opacity: headlineOpacity,
           }}
-          className="w-full max-w-5xl"
+          className="w-full max-w-4xl mx-auto"
         >
-          <h1 className="font-display font-black text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[1.1] sm:leading-[1.02]">
-            <span className="bg-gradient-to-b from-[#F3F4F6] via-[#D1D5DB] to-[#9CA3AF] bg-clip-text text-transparent block">
+          <h1 className="font-display font-black text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-[4.75rem] uppercase tracking-tight leading-[1.12] sm:leading-[1.06] text-center">
+            <span className="block text-slate-100 whitespace-nowrap">
               THE ARCHITECTURE OF
             </span>
-            <span className="bg-gradient-to-b from-[#FDE08B] via-[#C5A059] to-[#8C6D31] bg-clip-text text-transparent block mt-1 drop-shadow-sm drop-shadow-[0_4px_30px_rgba(197,160,89,0.35)]">
-              ELITE PERFORMANCE.
+            <span className="block bg-gradient-to-b from-[#FDE08B] via-[#C5A059] to-[#8C6D31] bg-clip-text text-transparent mt-1.5 sm:mt-2.5 whitespace-nowrap drop-shadow-[0_4px_25px_rgba(197,160,89,0.35)]">
+              ELITE PERFORMANCE
             </span>
           </h1>
         </motion.div>
@@ -238,10 +237,10 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-4 sm:mt-6 max-w-2xl sm:max-w-3xl text-sm sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed tracking-normal font-body px-2"
-          style={{ margin: '16px auto 0 auto' }}
+          className="mt-3 sm:mt-5 max-w-xl sm:max-w-2xl text-xs sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed font-body px-3 text-center"
+          style={{ margin: '14px auto 0 auto' }}
         >
-          Central India&apos;s premier private fitness sanctuary. Featuring biomechanically perfected,{" "}
+          Central India&apos;s premier private athletic sanctuary. Featuring biomechanically perfected,{" "}
           <span className="text-white font-medium underline decoration-[#c5a059] underline-offset-4">
             Kai Greene certified
           </span>{" "}
