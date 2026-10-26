@@ -6,12 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Shield,
   ChevronDown,
-  Activity,
   Sparkles,
-  MapPin,
-  Award,
-  Zap,
-  CheckCircle2,
 } from "lucide-react";
 
 interface HeroProps {
@@ -37,8 +32,8 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
   });
 
   const headlineScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.94]);
-  const headlineY = useTransform(scrollYProgress, [0, 0.6], [0, 60]);
-  const headlineOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.3]);
+  const headlineY = useTransform(scrollYProgress, [0, 0.6], [0, 50]);
+  const headlineOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.2]);
 
   // Seamlessly alternating playlist loop: repeats both videos with sound always OFF
   const handleVideoEnded = () => {
@@ -61,7 +56,7 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-[#121214] pt-24 sm:pt-28 pb-14 px-4 sm:px-6"
+      className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-[#121214] pt-20 sm:pt-24 pb-12 px-4 sm:px-6"
     >
       {/* Background Video Engine - Dual Alternating Video Loop (Sound Always OFF, No Text Banner) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -85,56 +80,56 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
         <div className="absolute bottom-10 right-10 w-[450px] h-[300px] bg-[#e8c881]/5 rounded-full blur-[140px] pointer-events-none" />
       </div>
 
-      {/* Main Hero Content Display */}
-      <div className="hero-content-stack relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center w-full">
+      {/* Main Hero Content Display - Focused, Minimal, High-Impact First View */}
+      <div className="hero-content-stack relative z-20 max-w-4xl mx-auto text-center flex flex-col items-center justify-center w-full my-auto">
         {/* Constrained Official Logo Crest with Floating Levitation */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mb-2.5 sm:mb-3"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mb-2 sm:mb-3"
         >
-          <div className="absolute inset-0 bg-[#c5a059]/20 blur-2xl rounded-full scale-125 pointer-events-none" />
+          <div className="absolute inset-0 bg-[#c5a059]/25 blur-2xl rounded-full scale-125 pointer-events-none" />
           <motion.div
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-            className="hero-logo-box relative w-16 h-16 sm:w-20 sm:h-20"
+            className="hero-logo-box relative w-14 h-14 sm:w-18 sm:h-18"
           >
             <Image
               src="/assets/logo.png"
               alt="Muscle Lab Gym Official Badge"
               fill
               priority
-              sizes="96px"
+              sizes="80px"
               className="object-contain drop-shadow-[0_0_25px_rgba(197,160,89,0.4)]"
             />
           </motion.div>
         </motion.div>
 
-        {/* Floating Top Eyebrow Badge */}
+        {/* Minimal Floating Top Eyebrow Badge */}
         <motion.div
-          initial={{ opacity: 0, y: -15, filter: "blur(6px)" }}
+          initial={{ opacity: 0, y: -12, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full glass-panel border border-[#c5a059]/40 text-slate-200 shadow-[0_0_20px_rgba(197,160,89,0.15)] mb-3 sm:mb-4 max-w-[94vw] sm:max-w-none"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-[#c5a059]/40 text-slate-200 shadow-[0_0_20px_rgba(197,160,89,0.15)] mb-3 sm:mb-4 max-w-[92vw] sm:max-w-none"
         >
           <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c5a059] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c5a059]"></span>
           </span>
-          <span className="text-[10px] sm:text-xs font-tech font-bold tracking-[0.16em] sm:tracking-[0.2em] uppercase text-slate-200">
-            KAI GREENE CERTIFIED • WRIGHT TOWN, JABALPUR
+          <span className="text-[10px] sm:text-xs font-tech font-bold tracking-[0.16em] uppercase text-slate-200">
+            KAI GREENE CERTIFIED • JABALPUR
           </span>
         </motion.div>
 
-        {/* 2-Line Headline (Strictly 2 lines on mobile & web) */}
+        {/* Strict 2-Line Headline (Hero Focal Point) */}
         <motion.div
           style={{
             scale: headlineScale,
             y: headlineY,
             opacity: headlineOpacity,
           }}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-4xl mx-auto px-2"
@@ -143,62 +138,28 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
             <span className="hero-line text-slate-100 drop-shadow-sm">
               THE ARCHITECTURE OF
             </span>
-            <span className="hero-line animate-gold-shimmer mt-1 sm:mt-2 drop-shadow-[0_4px_28px_rgba(197,160,89,0.38)]">
+            <span className="hero-line animate-gold-shimmer mt-1 sm:mt-2 drop-shadow-[0_4px_28px_rgba(197,160,89,0.4)]">
               ELITE PERFORMANCE
             </span>
           </h1>
         </motion.div>
 
-        {/* Executive Sub-headline & Value Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 15, filter: "blur(6px)" }}
+        {/* Minimal High-Impact Single-Line Tagline */}
+        <motion.p
+          initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-3.5 sm:mt-4 max-w-2xl mx-auto px-4 text-center"
+          transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-3 sm:mt-4 text-[11px] sm:text-xs md:text-sm text-slate-300 font-medium font-tech tracking-wider uppercase px-4 text-center"
         >
-          <p className="text-xs sm:text-sm md:text-base text-slate-300 font-normal leading-relaxed font-body">
-            Central India&apos;s premier private athletic sanctuary. Engineered where biomechanical precision meets executive luxury.
-          </p>
-        </motion.div>
-
-        {/* Structured 3-Pillar Micro-Pills / Feature Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-3xl px-2"
-        >
-          {/* Pillar 1 */}
-          <div className="flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl glass-panel border border-white/10 hover:border-[#c5a059]/50 transition-all duration-300">
-            <Award className="w-3.5 h-3.5 text-[#c5a059] shrink-0" />
-            <span className="text-[11px] sm:text-xs font-tech font-medium tracking-wide text-slate-200">
-              Kai Greene Certified Machinery
-            </span>
-          </div>
-
-          {/* Pillar 2 */}
-          <div className="flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl glass-panel border border-white/10 hover:border-[#c5a059]/50 transition-all duration-300">
-            <Zap className="w-3.5 h-3.5 text-[#e8c881] shrink-0" />
-            <span className="text-[11px] sm:text-xs font-tech font-medium tracking-wide text-slate-200">
-              10,000W Calibrated Acoustic Flow
-            </span>
-          </div>
-
-          {/* Pillar 3 */}
-          <div className="flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl glass-panel border border-white/10 hover:border-[#c5a059]/50 transition-all duration-300">
-            <Shield className="w-3.5 h-3.5 text-[#c5a059] shrink-0 fill-[#c5a059]/20" />
-            <span className="text-[11px] sm:text-xs font-tech font-medium tracking-wide text-slate-200">
-              Nordic Thermal Contrast Suite
-            </span>
-          </div>
-        </motion.div>
+          Central India&apos;s Premier Private Iron Sanctuary
+        </motion.p>
 
         {/* Hero Interactive CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+          initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4"
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4"
         >
           {/* Day Pass Primary CTA */}
           <button
@@ -213,67 +174,24 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
 
           {/* Inspect Gear Button */}
           <a
-            href="#kai-greene"
+            href="#sanctuary-details"
             className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-semibold font-tech tracking-[0.08em] uppercase text-slate-200 glass-panel border border-white/15 hover:border-[#c5a059] hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2.5 hover:-translate-y-0.5"
           >
             <Sparkles className="w-4 h-4 text-[#c5a059]" />
-            Explore The Sanctuary
+            Explore Sanctuary
           </a>
         </motion.div>
 
-        {/* Reassurance Micro Badge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.48 }}
-          className="mt-2.5 flex items-center justify-center gap-2 text-[10px] sm:text-[11px] font-tech text-slate-400"
-        >
-          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Complimentary 1-Day Access • Zero Commitment • Direct WhatsApp Confirmation</span>
-        </motion.div>
-
-        {/* Live Telemetry HUD Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 sm:mt-8 pt-4 sm:pt-5 border-t border-white/10 max-w-3xl w-full px-3"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-[10px] sm:text-xs font-tech text-slate-400">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-panel border border-white/5 sm:border-0 sm:p-0 sm:bg-transparent">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-slate-400">STATUS:</span>
-              <span className="text-white font-bold">OPERATIONAL TODAY</span>
-            </div>
-
-            <div className="hidden sm:block text-slate-600">|</div>
-
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-panel border border-white/5 sm:border-0 sm:p-0 sm:bg-transparent">
-              <Activity className="w-3.5 h-3.5 text-[#c5a059]" />
-              <span className="text-slate-400">FLOOR:</span>
-              <span className="text-[#e8c881] font-bold">OPTIMAL TRAINING FLOW</span>
-            </div>
-
-            <div className="hidden sm:block text-slate-600">|</div>
-
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-panel border border-white/5 sm:border-0 sm:p-0 sm:bg-transparent">
-              <MapPin className="w-3.5 h-3.5 text-slate-400" />
-              <span className="text-slate-400">LOCATION:</span>
-              <span className="text-white">WRIGHT TOWN, JABALPUR</span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
+        {/* Subtle Minimal Scroll Cue */}
         <motion.a
-          href="#experience"
-          animate={{ y: [0, 8, 0] }}
+          href="#sanctuary-details"
+          animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          className="mt-5 sm:mt-7 text-slate-500 hover:text-white transition-colors flex flex-col items-center gap-1 group"
-          aria-label="Scroll to content"
+          className="mt-6 sm:mt-9 text-slate-500 hover:text-white transition-colors flex flex-col items-center gap-1 group"
+          aria-label="Scroll to sanctuary details"
         >
-          <span className="text-[10px] font-tech tracking-widest uppercase opacity-70 group-hover:opacity-100">
-            EXPLORE THE SANCTUARY
+          <span className="text-[10px] font-tech tracking-[0.2em] uppercase opacity-70 group-hover:opacity-100">
+            SCROLL TO EXPLORE
           </span>
           <ChevronDown className="w-4 h-4 text-[#c5a059]" />
         </motion.a>
