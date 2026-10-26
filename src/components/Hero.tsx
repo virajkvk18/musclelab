@@ -1,13 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  Volume2,
-  VolumeX,
-  Play,
-  Pause,
   Shield,
   ChevronDown,
   Activity,
@@ -20,19 +16,16 @@ interface HeroProps {
   onOpenFranchiseModal: () => void;
 }
 
+// Alternating playlist: current 4K remix + cropped previous sanctuary video
+const heroPlaylist = [
+  "/assets/Muscle_Lab_Remix_4K.mp4",
+  "/assets/gym-hero-cropped.mp4",
+];
+
 export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [activeCamera, setActiveCamera] = useState<string>("/assets/Muscle_Lab_Remix_4K.mp4");
-
-  const videoAngles = [
-    { id: "cam-1", label: "CAM 01 // 4K CINEMATIC REMIX", src: "/assets/Muscle_Lab_Remix_4K.mp4" },
-    { id: "cam-2", label: "CAM 02 // HEAVY RACK", src: "/assets/facility-video-2.mp4" },
-    { id: "cam-3", label: "CAM 03 // PRO GEAR", src: "/assets/facility-video-3.mp4" },
-  ];
+  const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
 
   // Scroll animations with Apple-tier damping
   const { scrollYProgress } = useScroll({
@@ -44,35 +37,22 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
   const headlineY = useTransform(scrollYProgress, [0, 0.6], [0, 60]);
   const headlineOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.3]);
 
-  const toggleSound = () => {
-    if (!videoRef.current) return;
-    const nextMuted = !isMuted;
-    videoRef.current.muted = nextMuted;
-    setIsMuted(nextMuted);
-    if (!nextMuted) {
-      videoRef.current.volume = 0.6;
-    }
+  // Seamlessly alternating playlist loop: repeats both videos with sound always OFF
+  const handleVideoEnded = () => {
+    setCurrentVideoIdx((prev) => (prev + 1) % heroPlaylist.length);
   };
 
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.src = heroPlaylist[currentVideoIdx];
+    video.muted = true;
+    video.playsInline = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
     }
-  };
-
-  const changeAngle = (src: string) => {
-    setActiveCamera(src);
-    if (videoRef.current) {
-      videoRef.current.src = src;
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
+  }, [currentVideoIdx]);
 
   return (
     <section
@@ -80,78 +60,26 @@ export default function Hero({ onOpenDayPassModal, onOpenFranchiseModal }: HeroP
       ref={containerRef}
       className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-[#121214] pt-24 sm:pt-28 pb-14 px-4 sm:px-6"
     >
-      {/* Background Video Engine */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Background Video Engine - Dual Alternating Video Loop (Sound Always OFF, No Text Banner) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <video
           ref={videoRef}
-          src={activeCamera}
+          src={heroPlaylist[currentVideoIdx]}
           autoPlay
-          loop
-          muted={isMuted}
+          muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.18] scale-105 transition-all duration-700"
+          onEnded={handleVideoEnded}
+          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.18] scale-105 transition-opacity duration-1000"
         />
 
         {/* Matte Charcoal Vignetting & Grain Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-[#121214]/60 to-[#121214]/85" />
-        <div className="absolute inset-0 bg-radial-vignette opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-[#121214]/60 to-[#121214]/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-radial-vignette opacity-70 pointer-events-none" />
         <div className="absolute inset-0 bg-grid-subtle opacity-20 pointer-events-none" />
 
         {/* Warm Ambient Sheen Lights */}
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#c5a059]/10 rounded-full blur-[160px] pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-[450px] h-[300px] bg-[#e8c881]/5 rounded-full blur-[140px] pointer-events-none" />
-      </div>
-
-      {/* Floating HUD Camera & Audio Controller (Bottom Right) */}
-      <div className="absolute bottom-6 right-4 sm:right-8 z-30 flex flex-col items-end gap-2.5">
-        {/* Camera Selector HUD */}
-        <div className="hidden sm:flex items-center gap-1.5 p-1 rounded-xl glass-panel border border-white/10 backdrop-blur-xl">
-          {videoAngles.map((cam) => (
-            <button
-              key={cam.id}
-              onClick={() => changeAngle(cam.src)}
-              className={`px-3 py-1 text-[10px] font-tech font-bold rounded-lg transition-all ${
-                activeCamera === cam.src
-                  ? "bg-gradient-to-r from-[#c5a059] to-[#e8c881] text-[#121214] shadow-[0_0_12px_rgba(197,160,89,0.4)]"
-                  : "text-slate-400 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {cam.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Media Controls HUD */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={togglePlay}
-            className="p-3 rounded-xl glass-panel hover:border-[#c5a059]/50 text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg group"
-            title={isPlaying ? "Pause Ambient Feed" : "Play Ambient Feed"}
-          >
-            {isPlaying ? (
-              <Pause className="w-4 h-4 text-slate-300 group-hover:text-[#c5a059]" />
-            ) : (
-              <Play className="w-4 h-4 text-[#c5a059] fill-[#c5a059]" />
-            )}
-          </button>
-
-          <button
-            onClick={toggleSound}
-            className={`p-3 rounded-xl glass-panel text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg group flex items-center gap-2 ${
-              !isMuted ? "border-[#c5a059] bg-[#c5a059]/15" : "hover:border-white/20"
-            }`}
-            title={isMuted ? "Unmute Ambient Audio" : "Mute Audio"}
-          >
-            {isMuted ? (
-              <VolumeX className="w-4 h-4 text-slate-400 group-hover:text-white" />
-            ) : (
-              <Volume2 className="w-4 h-4 text-[#c5a059] animate-pulse" />
-            )}
-            <span className="text-[10px] font-tech uppercase tracking-wider text-slate-300 pr-1 hidden xs:inline">
-              {isMuted ? "Muted" : "Live Sound"}
-            </span>
-          </button>
-        </div>
       </div>
 
       {/* Main Hero Content Display */}
