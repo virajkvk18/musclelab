@@ -248,3 +248,49 @@ header nav {
 .sheen-effect:hover::after {
   transform: translateX(100%);
 }
+
+/* Animated Liquid Gold Shimmer */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-gold-shimmer {
+  background: linear-gradient(90deg, #9e7d3b 0%, #c5a059 20%, #fff2be 45%, #e8c881 55%, #c5a059 80%, #9e7d3b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 7s ease-in-out infinite;
+}
+
+/* Subtle Floating Breathing Animation */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-subtle {
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+/* Gold Pulse Glow Keyframe */
+@keyframes goldPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(197, 160, 89, 0.55);
+  }
+}
+
+.animate-gold-pulse {
+  animation: goldPulseGlow 3s ease-in-out infinite;
+}
