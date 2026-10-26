@@ -142,11 +142,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 bg-[#18181c]/70 hover:border-[#c5a059]/50 transition-all duration-300 group"
+              whileHover={{ y: -7, scale: 1.015 }}
+              className="card-specular-highlight gold-glow-hover flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 bg-[#18181c]/70 hover:border-[#c5a059]/60 transition-all duration-300 group"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#c5a059] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#c5a059] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Award className="w-6 h-6" />
                 </div>
                 <div className="text-[10px] font-tech text-[#c5a059] uppercase tracking-wider font-bold mb-1">
@@ -171,11 +171,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 bg-[#18181c]/70 hover:border-[#c5a059]/50 transition-all duration-300 group"
+              whileHover={{ y: -7, scale: 1.015 }}
+              className="card-specular-highlight gold-glow-hover flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 bg-[#18181c]/70 hover:border-[#c5a059]/60 transition-all duration-300 group"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#e8c881]/10 border border-[#e8c881]/30 text-[#e8c881] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-[#e8c881]/10 border border-[#e8c881]/30 text-[#e8c881] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Zap className="w-6 h-6 text-[#e8c881]" />
                 </div>
                 <div className="text-[10px] font-tech text-[#e8c881] uppercase tracking-wider font-bold mb-1">
@@ -200,11 +200,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 bg-[#18181c]/70 hover:border-[#c5a059]/50 transition-all duration-300 group"
+              whileHover={{ y: -7, scale: 1.015 }}
+              className="card-specular-highlight gold-glow-hover flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 bg-[#18181c]/70 hover:border-[#c5a059]/60 transition-all duration-300 group"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#c5a059] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#c5a059] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Shield className="w-6 h-6 fill-[#c5a059]/20 text-[#c5a059]" />
                 </div>
                 <div className="text-[10px] font-tech text-[#c5a059] uppercase tracking-wider font-bold mb-1">
@@ -230,7 +230,7 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="mt-8 sm:mt-10 p-4 sm:p-5 rounded-2xl glass-panel border border-white/5 bg-[#18181c]/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
+            className="card-specular-highlight mt-8 sm:mt-10 p-4 sm:p-5 rounded-2xl glass-panel border border-white/10 bg-[#18181c]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xl"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
@@ -246,13 +246,16 @@ export default function Home() {
               </div>
             </div>
 
-            <button
+            <motion.button
               onClick={() => setIsDayPassModalOpen(true)}
-              className="px-5 py-2.5 rounded-xl text-xs font-bold font-tech uppercase text-[#121214] bg-gradient-to-r from-[#c5a059] via-[#e8c881] to-[#c5a059] hover:shadow-[0_0_25px_rgba(197,160,89,0.5)] transition-all duration-300 flex items-center gap-2 shrink-0 active:scale-95"
+              whileHover={{ scale: 1.04, y: -1 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className="px-5 py-2.5 rounded-xl text-xs font-bold font-tech uppercase text-[#121214] bg-gradient-to-r from-[#c5a059] via-[#e8c881] to-[#c5a059] shadow-[0_0_25px_rgba(197,160,89,0.4)] hover:shadow-[0_0_35px_rgba(197,160,89,0.7)] transition-shadow duration-300 flex items-center gap-2 shrink-0 sheen-effect"
             >
               <span>Claim Free Pass</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </motion.button>
           </motion.div>
         </div>
       </section>
@@ -309,11 +312,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/5 bg-[#18181c]/70 hover:border-[#c5a059]/40 transition-colors duration-300 shadow-lg"
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="card-specular-highlight gold-glow-hover flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/5 bg-[#18181c]/70 hover:border-[#c5a059]/50 transition-all duration-300 shadow-xl group"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#c5a059] flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-2xl bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#c5a059] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Shield className="w-6 h-6 fill-[#c5a059]/20 text-[#c5a059]" />
                 </div>
                 <h3 className="font-display font-bold text-base sm:text-lg text-white uppercase tracking-tight">
@@ -335,11 +338,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/5 bg-[#18181c]/70 hover:border-[#c5a059]/40 transition-colors duration-300 shadow-lg"
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="card-specular-highlight gold-glow-hover flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/5 bg-[#18181c]/70 hover:border-[#c5a059]/50 transition-all duration-300 shadow-xl group"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#e8c881]/10 border border-[#e8c881]/30 text-[#e8c881] flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-2xl bg-[#e8c881]/10 border border-[#e8c881]/30 text-[#e8c881] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Award className="w-6 h-6 text-[#e8c881]" />
                 </div>
                 <h3 className="font-display font-bold text-base sm:text-lg text-white uppercase tracking-tight">
@@ -361,11 +364,11 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/5 bg-[#18181c]/70 hover:border-[#c5a059]/40 transition-colors duration-300 shadow-lg"
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="card-specular-highlight gold-glow-hover flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/5 bg-[#18181c]/70 hover:border-[#c5a059]/50 transition-all duration-300 shadow-xl group"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <Scale className="w-6 h-6 text-slate-300" />
                 </div>
                 <h3 className="font-display font-bold text-base sm:text-lg text-white uppercase tracking-tight">
